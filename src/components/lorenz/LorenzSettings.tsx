@@ -77,6 +77,10 @@ export default class LorenzSettings extends React.Component<
 
 		return (
 			<div className="cam-pickers">
+				<span className="cam-picker-info">
+					Black box means a bit that's 1 and a white box is a bit
+					that's 0
+				</span>
 				<CamPickerContainer
 					camPickers={camPickers.splice(0, 5)}
 					wheelName="Psi wheels"

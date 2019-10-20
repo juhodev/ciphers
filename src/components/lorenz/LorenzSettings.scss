@@ -1,5 +1,13 @@
+@import '../../index.scss';
+
 .lorenz-settings {
 	text-align: center;
+
+	.cam-picker-info {
+		background-color: #fff;
+		padding: 5px;
+		border: 1px solid $borderColor;
+	}
 
 	.cam-pickers {
 		display: flex;
