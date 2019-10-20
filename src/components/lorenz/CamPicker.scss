@@ -1,0 +1,13 @@
+@import '../../index.scss';
+
+.cam-picker {
+	padding: 10px;
+
+	.cam-picker-name {
+		padding: 2px;
+		padding-right: 20%;
+		width: fit-content;
+		color: #fff;
+		background-color: $blue;
+	}
+}

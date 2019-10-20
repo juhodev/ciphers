@@ -1,0 +1,17 @@
+@import '../../index.scss';
+
+.select-group {
+    width: 20%;
+
+    .title {
+        color: #fff;
+        padding: 3px;
+        width: 30%;
+        margin-left: 5%;
+        background-color: $blue;
+    }
+
+    .select-container {
+        border: 1px solid $borderColor;
+    }
+}

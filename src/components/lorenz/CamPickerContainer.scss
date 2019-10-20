@@ -1,0 +1,24 @@
+@import '../../index.scss';
+
+.cam-picker-container {
+	padding: 5px;
+
+	.wheel-name {
+		margin-left: 5%;
+		padding: 2px;
+		padding-right: 10%;
+		width: fit-content;
+		color: #fff;
+		background-color: $blue;
+	}
+
+	.wheels {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		border: 1px solid $borderColor;
+		background-color: #fff;
+		justify-content: center;
+		align-items: center;
+	}
+}

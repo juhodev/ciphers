@@ -1,0 +1,13 @@
+@import '../index.scss';
+
+.search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	input {
+		width: 60%;
+		height: 20px;
+		padding: 2px;
+	}
+}

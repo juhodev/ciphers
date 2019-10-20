@@ -1,0 +1,15 @@
+.lorenz-settings {
+	text-align: center;
+
+	.cam-pickers {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.cam-picker-toggle {
+		text-align: center;
+		font-weight: bold;
+		cursor: pointer;
+	}
+}

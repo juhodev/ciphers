@@ -1,0 +1,13 @@
+.select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 3px;
+
+    .select-previous,
+    .select-next {
+        font-weight: bold;
+        cursor: pointer;
+    }
+}

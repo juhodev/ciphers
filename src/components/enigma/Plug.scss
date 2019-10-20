@@ -1,0 +1,19 @@
+@import '../../index.scss';
+
+.plug {
+    display: flex;
+    padding: 3px;
+    background-color: #fff;
+    border: 1px solid $borderColor;
+    width: fit-content;
+
+    .plug-char {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .plug-remove {
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
