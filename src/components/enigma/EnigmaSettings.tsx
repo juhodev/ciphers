@@ -2,7 +2,7 @@ import * as React from 'react';
 import SelectGroup from '../UI/SelectGroup';
 import { SelectProps } from '../UI/Select';
 import { SelectOption } from '../Types';
-import { enigmas } from '../../machines/enigma/EnigmaConstants';
+import { enigmas } from '../../ciphers/enigma/EnigmaConstants';
 import { EnigmaState } from '../../store/enigma/Types';
 import {
 	setId,

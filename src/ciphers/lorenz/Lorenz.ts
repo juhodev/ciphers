@@ -1,16 +1,16 @@
-import { Machine, MachineType } from '../Machine';
+import { Cipher, CipherType } from '../Cipher';
 import { Wheel } from './parts/Wheel';
 import { TeleprinterCode } from './parts/TeleprinterCode';
 import cipherStore from '../../store/Index';
 import { setCipheredText } from '../../store/cipher/Actions';
 import { setCams, setWheelPositions } from '../../store/lorenz/Actions';
 
-export class Lorenz extends Machine {
+export class Lorenz extends Cipher {
 	wheels: Wheel[];
 	teleprinterCode: TeleprinterCode;
 
 	constructor() {
-		super(MachineType.Lorenz);
+		super(CipherType.Lorenz);
 
 		this.wheels = [];
 		this.teleprinterCode = new TeleprinterCode();

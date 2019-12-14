@@ -2,7 +2,7 @@ import * as React from 'react';
 import Plug, { PlugProps } from './Plug';
 import { Plug as PlugType } from '../../store/enigma/Types';
 import { removePlug, addPlug } from '../../store/enigma/Actions';
-import { randomString } from '../../machines/enigma/Utils';
+import { randomString } from '../../ciphers/enigma/Utils';
 import './PlugContainer.scss';
 import { string } from 'prop-types';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Select, { SelectProps } from './Select';
 import './SelectGroup.scss';
-import { randomString } from '../../machines/enigma/Utils';
+import { randomString } from '../../ciphers/enigma/Utils';
 
 interface SelectGroupProps {
     title: string;

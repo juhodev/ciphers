@@ -1,4 +1,4 @@
-import { Machine, MachineType } from '../Machine';
+import { Cipher, CipherType } from '../Cipher';
 import { Plugboard } from './parts/Plugboard';
 import { Reflector } from './parts/Reflector';
 import { reflectorB } from './EnigmaConstants';
@@ -9,14 +9,14 @@ import cipherStore from '../../store/Index';
 import { setStartingPositions } from '../../store/enigma/Actions';
 import { setCipheredText } from '../../store/cipher/Actions';
 
-export class Enigma extends Machine {
+export class Enigma extends Cipher {
 	alphabet: string[];
 	rotorContainer: RotorContainer;
 	reflector: Reflector;
 	plugboard: Plugboard;
 
 	constructor() {
-		super(MachineType.Enigma);
+		super(CipherType.Enigma);
 
 		this.alphabet = [
 			'A',

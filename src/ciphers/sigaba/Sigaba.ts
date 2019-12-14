@@ -1,11 +1,11 @@
-import { Machine, MachineType } from '../Machine';
+import { Cipher, CipherType } from '../Cipher';
 import { ControlRotorBank } from './rotors/ControlRotorBank';
 import { AlphabetRotor } from './rotors/AlphabetRotor';
 import { alphabet } from '../Types';
 
-export class Sigaba extends Machine {
+export class Sigaba extends Cipher {
 	constructor() {
-		super(MachineType.Sigaba);
+		super(CipherType.Sigaba);
 	}
 
 	encryptString() {

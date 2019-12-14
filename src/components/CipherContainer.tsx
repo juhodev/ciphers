@@ -10,23 +10,23 @@ import {
 import { setPlainText, setCipheredText } from '../store/cipher/Actions';
 import { connect } from 'react-redux';
 import { AppState } from '../store/Index';
-import { Enigma } from '../machines/enigma/Enigma';
+import { Enigma } from '../ciphers/enigma/Enigma';
 import TextArea from './UI/TextArea';
 import './CipherContainer.scss';
-import { enigmas, EnigmaInfo } from '../machines/enigma/EnigmaConstants';
+import { enigmas, EnigmaInfo } from '../ciphers/enigma/EnigmaConstants';
 import { CipherState } from '../store/cipher/Types';
 import { SelectOption } from './Types';
-import { Machine, MachineType } from '../machines/Machine';
+import { Cipher, CipherType } from '../ciphers/Cipher';
 import {
 	calculateEnigmaPossibilities,
 	getLorenzPossibilities,
-} from '../machines/enigma/Utils';
+} from '../ciphers/enigma/Utils';
 import PlugContainer from './enigma/PlugContainer';
 import EnigmaSettings from './enigma/EnigmaSettings';
 import { LorenzState } from '../store/lorenz/Types';
 import LorenzSettings from './lorenz/LorenzSettings';
 import { setCam, setWheelPositions } from '../store/lorenz/Actions';
-import { Lorenz } from '../machines/lorenz/Lorenz';
+import { Lorenz } from '../ciphers/lorenz/Lorenz';
 import Select from './UI/Select';
 
 interface CipherContainerProps {
@@ -46,36 +46,36 @@ interface CipherContainerProps {
 
 interface CipherContainerState {
 	plaintext: string;
-	machine: MachineType;
+	machine: CipherType;
 }
 
 class CipherContainer extends React.Component<
 	CipherContainerProps,
 	CipherContainerState
 > {
-	machine: Machine;
+	cipher: Cipher;
 
 	constructor(props: any) {
 		super(props);
 
-		this.setMachine();
-		// this.machine = new Enigma();
-		// this.state = { plaintext: '', machine: MachineType.Enigma };
+		this.setCipher();
+		// this.cipher = new Enigma();
+		// this.state = { plaintext: '', machine: CipherType.Enigma };
 		this.encryptString = this.encryptString.bind(this);
 	}
 
-	setMachine() {
+	setCipher() {
 		const { pathname } = window.location;
 
 		switch (pathname) {
 			case '/enigma':
-				this.machine = new Enigma();
-				this.state = { plaintext: '', machine: MachineType.Enigma };
+				this.cipher = new Enigma();
+				this.state = { plaintext: '', machine: CipherType.Enigma };
 				break;
 
 			case '/lorenz':
-				this.machine = new Lorenz();
-				this.state = { plaintext: '', machine: MachineType.Lorenz };
+				this.cipher = new Lorenz();
+				this.state = { plaintext: '', machine: CipherType.Lorenz };
 				break;
 
 			default:
@@ -87,15 +87,15 @@ class CipherContainer extends React.Component<
 
 	encryptString(): void {
 		this.props.setPlainText(this.state.plaintext);
-		this.machine.encryptString();
+		this.cipher.encryptString();
 	}
 
 	validInput(s: string): boolean {
 		const { machine } = this.state;
 
-		if (machine === MachineType.Enigma) {
+		if (machine === CipherType.Enigma) {
 			return /[a-zA-Z\s]/.test(s);
-		} else if (machine === MachineType.Lorenz) {
+		} else if (machine === CipherType.Lorenz) {
 			return /[a-zA-Z^(3|4|5|8|9)$\s]/.test(s);
 		}
 	}
@@ -106,7 +106,7 @@ class CipherContainer extends React.Component<
 
 		return (
 			<div id="container">
-				{machine === MachineType.Enigma ? (
+				{machine === CipherType.Enigma ? (
 					<EnigmaSettings
 						enigma={this.props.enigma}
 						setId={this.props.setId}
@@ -121,7 +121,7 @@ class CipherContainer extends React.Component<
 						setWheelPositions={this.props.setWheelPositions}
 					/>
 				)}
-				{machine === MachineType.Enigma ? (
+				{machine === CipherType.Enigma ? (
 					<span id="machine-info">
 						{`${enigmaInfo.displayName} was introduced in ${
 							enigmaInfo.introduced
@@ -147,7 +147,7 @@ class CipherContainer extends React.Component<
 						possible combinations.
 					</span>
 				)}
-				{enigmaInfo.hasPlugboard && machine === MachineType.Enigma && (
+				{enigmaInfo.hasPlugboard && machine === CipherType.Enigma && (
 					<PlugContainer
 						plugs={this.props.enigma.plugs}
 						removePlug={this.props.removePlug}
@@ -183,17 +183,14 @@ const mapStateToProps = (state: AppState) => ({
 	lorenz: state.lorenz,
 });
 
-export default connect(
-	mapStateToProps,
-	{
-		addPlug,
-		removePlug,
-		setId,
-		setRotorPositions,
-		setStartingPositions,
-		setPlainText,
-		setCipheredText,
-		setCam,
-		setWheelPositions,
-	},
-)(CipherContainer);
+export default connect(mapStateToProps, {
+	addPlug,
+	removePlug,
+	setId,
+	setRotorPositions,
+	setStartingPositions,
+	setPlainText,
+	setCipheredText,
+	setCam,
+	setWheelPositions,
+})(CipherContainer);
