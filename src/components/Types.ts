@@ -29,4 +29,10 @@ export const MACHINE_BASIC_INFO: BasicInfo[] = [
 		country: 'Germany',
 		link: '/lorenz',
 	},
+	{
+		name: 'Caesar cipher',
+		date: 'Who the fuck knows',
+		country: '????',
+		link: '/caesarcipher',
+	},
 ];

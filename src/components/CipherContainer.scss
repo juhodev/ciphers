@@ -2,23 +2,21 @@
 
 #container {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 
-	#machine-info {
-		background-color: #fff;
-		text-align: center;
-		border: 1px solid $borderColor;
+	#options {
+		width: 25%;
 		margin: 10px;
-		padding: 3px;
-
-		abbr {
-			text-decoration: underline;
-		}
 	}
 
-	.button-container {
-		padding: 10px;
-		display: flex;
-		justify-content: center;
+	#common {
+		width: 50%;
+		margin: 10px;
+
+		.button-container {
+			padding: 10px;
+			display: flex;
+			justify-content: center;
+		}
 	}
 }

@@ -2,9 +2,14 @@
 
 $blue: #0faddc;
 $borderColor: #eeeeee;
+$darkBackground: #263238;
+$background: #37474F;
+$lighterBackground: #455A64;
+$borderColor: #37474F;
+$fontColor: #CFD8DC;
 
 body,
 html {
     font-family: 'Quicksand', sans-serif;
-    background-color: #f8f8f8;
+    background-color: $darkBackground;
 }

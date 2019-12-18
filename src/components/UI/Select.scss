@@ -1,8 +1,11 @@
+@import '../../index.scss';
+
 .select {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #fff;
+    background-color: $lighterBackground;
+    color: $fontColor;
     padding: 3px;
 
     .select-previous,

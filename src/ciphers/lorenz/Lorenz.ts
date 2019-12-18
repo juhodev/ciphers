@@ -2,7 +2,7 @@ import { Cipher, CipherType } from '../Cipher';
 import { Wheel } from './parts/Wheel';
 import { TeleprinterCode } from './parts/TeleprinterCode';
 import cipherStore from '../../store/Index';
-import { setCipheredText } from '../../store/cipher/Actions';
+import { setOutput } from '../../store/cipher/Actions';
 import { setCams, setWheelPositions } from '../../store/lorenz/Actions';
 
 export class Lorenz extends Cipher {
@@ -21,7 +21,7 @@ export class Lorenz extends Cipher {
 		this.setSettings();
 
 		const encryptedString: string[] = [];
-		let plainText: string = cipherStore.getState().cipher.plainText;
+		let plainText: string = cipherStore.getState().cipher.input;
 		plainText = plainText.replace(/[\s]/g, '');
 
 		if (plainText.length === 0) return;
@@ -31,7 +31,7 @@ export class Lorenz extends Cipher {
 		}
 
 		cipherStore.dispatch(
-			setCipheredText(
+			setOutput(
 				encryptedString.reduce((str: string, a: string) => str + a),
 			),
 		);
@@ -43,6 +43,10 @@ export class Lorenz extends Cipher {
 		cipherStore.dispatch(
 			setWheelPositions(this.wheels.map(w => w.currentPosition)),
 		);
+	}
+
+	decryptString() {
+		this.encryptString();
 	}
 
 	private encryptLetter(s: string): string {

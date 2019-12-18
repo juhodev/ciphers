@@ -9,13 +9,17 @@
 	input {
 		width: 60%;
 		height: 20px;
-		padding: 2px;
+		color: $fontColor;
+		padding: 4px;
+		background-color: $lighterBackground;
+		border: 1px solid $borderColor;
 	}
 
 	.suggestion {
+		color: $fontColor;
 		width: 80%;
 		text-align: center;
-		background-color: #fff;
+		background-color: $lighterBackground;
 		margin: 10px;
 		padding: 10px;
 		border: 1px solid $borderColor;

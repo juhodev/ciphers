@@ -2,6 +2,7 @@ export enum CipherType {
 	Enigma,
 	Lorenz,
 	Sigaba,
+	Caesar,
 }
 
 export abstract class Cipher {
@@ -12,4 +13,5 @@ export abstract class Cipher {
 	}
 
 	abstract encryptString(): void;
+	abstract decryptString(): void;
 }

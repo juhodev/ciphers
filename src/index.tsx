@@ -13,6 +13,7 @@ const Root = ({ store }) => (
 			<Route path="/" exact component={Search} />
 			<Route path="/enigma" component={CipherContainer} />
 			<Route path="/lorenz" component={CipherContainer} />
+			<Route path="/caesarcipher" component={CipherContainer} />
 		</Router>
 	</Provider>
 );

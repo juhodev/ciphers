@@ -1,19 +1,19 @@
 export interface CipherState {
-	plainText: string;
-	cipheredText: string;
-};
+	input: string;
+	output: string;
+}
 
-export const SET_PLAINTEXT: string = 'SET_PLAINTEXT';
-export const SET_CIPHERTEXT: string = 'SET_CIPHERTEXT';
+export const SET_INPUT: string = 'SET_INPUT';
+export const SET_OUTPUT: string = 'SET_OUTPUT';
 
-interface SetPlainText {
-	type: typeof SET_PLAINTEXT;
+interface SetInput {
+	type: typeof SET_INPUT;
 	payload: string;
-};
+}
 
-interface SetCipherText {
-	type: typeof SET_CIPHERTEXT;
+interface SetOutput {
+	type: typeof SET_OUTPUT;
 	payload: string;
-};
+}
 
-export type CipherActionTypes = SetPlainText | SetCipherText;
+export type CipherActionTypes = SetInput | SetOutput;

@@ -32,4 +32,6 @@ export class Sigaba extends Cipher {
 				alphabet.indexOf(controlInputs[3])}`,
 		);
 	}
+
+	decryptString() {}
 }

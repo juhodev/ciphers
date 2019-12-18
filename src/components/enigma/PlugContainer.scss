@@ -1,33 +1,38 @@
 @import '../../index.scss';
 
 .plugboard {
-    .title {
-        color: #fff;
-        padding: 3px;
-        width: 10%;
-        margin-left: 5%;
-        background-color: $blue;
-    }
+	.title {
+		color: $fontColor;
+		padding: 3px;
+		width: 30%;
+		font-size: 18px;
+		margin-left: 5%;
+		background-color: $background;
+	}
 
-    .add-plug {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin: 3px;
+	.plugboard-container {
+        background-color: $lighterBackground;
+        padding: 5px;
 
-        input {
-            width: 20px;
-            margin-left: 5px;
-            margin-right: 5px;
-            text-align: center;
-        }
-    }
+		.add-plug {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
 
-    .plugs-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding-left: 15%;
-        padding-right: 15%;
-    }
+			input {
+				width: 20px;
+				margin-left: 5px;
+				margin-right: 5px;
+				text-align: center;
+			}
+		}
+
+		.plugs-container {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			padding-left: 15%;
+			padding-right: 15%;
+		}
+	}
 }

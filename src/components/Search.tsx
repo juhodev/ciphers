@@ -81,6 +81,10 @@ export default class Search extends React.Component<SearchProps, SearchState> {
 				this.props.history.push('/lorenz');
 				break;
 
+			case 'caesarcipher':
+				this.props.history.push('/caesarcipher');
+				break;
+
 			default:
 				console.log(`${value.toLowerCase()} not found`);
 				break;

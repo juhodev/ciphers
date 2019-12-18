@@ -1,15 +1,15 @@
-import { SET_PLAINTEXT, SET_CIPHERTEXT } from "./Types";
+import { SET_INPUT, SET_OUTPUT } from './Types';
 
-export function setPlainText(s: string) {
+export function setInput(s: string) {
 	return {
-		type: SET_PLAINTEXT,
+		type: SET_INPUT,
 		payload: s,
 	};
 }
 
-export function setCipheredText(s: string) {
+export function setOutput(s: string) {
 	return {
-		type: SET_CIPHERTEXT,
+		type: SET_OUTPUT,
 		payload: s,
 	};
 }

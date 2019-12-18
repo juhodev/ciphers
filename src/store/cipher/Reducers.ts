@@ -1,8 +1,8 @@
-import { CipherState, CipherActionTypes, SET_CIPHERTEXT, SET_PLAINTEXT } from "./Types";
+import { CipherState, CipherActionTypes, SET_INPUT, SET_OUTPUT } from './Types';
 
 const initialState: CipherState = {
-	plainText: '',
-	cipheredText: '',
+	input: '',
+	output: '',
 };
 
 export default function cipherReducer(
@@ -10,13 +10,13 @@ export default function cipherReducer(
 	action: CipherActionTypes,
 ): CipherState {
 	switch (action.type) {
-		case SET_PLAINTEXT:
-			return { plainText: action.payload, cipheredText: state.cipheredText };
+		case SET_INPUT:
+			return { input: action.payload, output: state.output };
 
-		case SET_CIPHERTEXT:
-			return { plainText: state.plainText, cipheredText: action.payload };
+		case SET_OUTPUT:
+			return { input: state.input, output: action.payload };
 
 		default:
 			return state;
 	}
-};
+}

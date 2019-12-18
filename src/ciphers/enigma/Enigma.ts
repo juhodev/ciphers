@@ -7,7 +7,7 @@ import { Rotor } from './parts/Rotor';
 import { getLetterFromAlphabet } from './Utils';
 import cipherStore from '../../store/Index';
 import { setStartingPositions } from '../../store/enigma/Actions';
-import { setCipheredText } from '../../store/cipher/Actions';
+import { setOutput } from '../../store/cipher/Actions';
 
 export class Enigma extends Cipher {
 	alphabet: string[];
@@ -55,7 +55,7 @@ export class Enigma extends Cipher {
 		this.setEnigmaSettings();
 
 		const encryptedString: string[] = [];
-		let plainText: string = cipherStore.getState().cipher.plainText;
+		let plainText: string = cipherStore.getState().cipher.input;
 		plainText = plainText.replace(/[\s]/g, '');
 
 		if (plainText.length === 0) return;
@@ -66,7 +66,7 @@ export class Enigma extends Cipher {
 		}
 
 		cipherStore.dispatch(
-			setCipheredText(
+			setOutput(
 				encryptedString.reduce((str: string, a: string) => str + a),
 			),
 		);
@@ -76,6 +76,10 @@ export class Enigma extends Cipher {
 				this.rotorContainer.rotors.map(w => w.currentPosition),
 			),
 		);
+	}
+
+	decryptString() {
+		this.encryptString();
 	}
 
 	private setEnigmaSettings(): void {
