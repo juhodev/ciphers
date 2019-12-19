@@ -19,4 +19,14 @@
 			justify-content: center;
 		}
 	}
+
+	button {
+		margin: 5px;
+		background-color: $background;
+		border: 1px solid $borderColor;
+		font-size: 17px;
+		color: $fontColor;
+		padding: 5px;
+		cursor: pointer;
+	}
 }
