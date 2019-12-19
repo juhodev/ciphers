@@ -10,7 +10,10 @@ export default class InfoContainer extends React.Component<InfoContainerProps> {
 		return (
 			<div className="info-container">
 				<div className="title">Info</div>
-				<div className="info-text">{this.props.info}</div>
+				<div
+					className="info-text"
+					dangerouslySetInnerHTML={{ __html: this.props.info }}
+				/>
 			</div>
 		);
 	}
