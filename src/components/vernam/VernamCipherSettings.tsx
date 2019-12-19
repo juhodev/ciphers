@@ -44,6 +44,6 @@ export default class VernamCipherSettings extends React.Component<
 	}
 
 	private validateKey(key: string) {
-		return key.length === 0 || /[a-zA-Z]/.test(key);
+		return key.length === 0 || /^\S*$/.test(key);
 	}
 }
