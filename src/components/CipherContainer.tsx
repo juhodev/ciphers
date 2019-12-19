@@ -34,6 +34,9 @@ import InfoContainer from './UI/InfoContainer';
 import { setKey } from '../store/vigenere/Actions';
 import VigenereCipher from '../ciphers/vigenere/VigenereCipher';
 import VigenereCipherSettings from './vigenere/VigenereCipherSettings';
+import { setVernamKey } from '../store/vernam/Actions';
+import VernamCipher from '../ciphers/vernam/VernamCipher';
+import VernamCipherSettings from './vernam/VernamCipherSettings';
 
 interface CipherContainerProps {
 	addPlug: typeof addPlug;
@@ -50,6 +53,7 @@ interface CipherContainerProps {
 	setWheelPositions: typeof setWheelPositions;
 	setRightShift: typeof setRightShift;
 	setKey: typeof setKey;
+	setVernamKey: typeof setVernamKey;
 }
 
 interface CipherContainerState {
@@ -114,6 +118,15 @@ class CipherContainer extends React.Component<
 				};
 				break;
 
+			case '/vernamcipher':
+				this.cipher = new VernamCipher();
+				this.state = {
+					plaintext: '',
+					cipher: CipherType.Vernam,
+					mode: 'encrypt',
+				};
+				break;
+
 			default:
 				window.alert(
 					`${pathname.substr(1, pathname.length)} not found`,
@@ -142,6 +155,8 @@ class CipherContainer extends React.Component<
 			return /[a-zA-Z]/.test(s);
 		} else if (cipher === CipherType.Vigenere) {
 			return /[a-zA-Z]/.test(s);
+		} else if (cipher === CipherType.Vernam) {
+			return /[a-zA-Z^(3|4|5|8|9)$\s]/.test(s);
 		}
 	}
 
@@ -190,6 +205,13 @@ class CipherContainer extends React.Component<
 
 			case CipherType.Vigenere:
 				return <VigenereCipherSettings setKey={this.props.setKey} />;
+
+			case CipherType.Vernam:
+				return (
+					<VernamCipherSettings
+						setVernamKey={this.props.setVernamKey}
+					/>
+				);
 		}
 	}
 
@@ -276,6 +298,7 @@ const mapStateToProps = (state: AppState) => ({
 	lorenz: state.lorenz,
 	caesarCipher: state.caesarCipher,
 	vigenereCipher: state.vigenereCipher,
+	vernamCipher: state.vernamCipher,
 });
 
 export default connect(mapStateToProps, {
@@ -290,4 +313,5 @@ export default connect(mapStateToProps, {
 	setWheelPositions,
 	setRightShift,
 	setKey,
+	setVernamKey,
 })(CipherContainer);

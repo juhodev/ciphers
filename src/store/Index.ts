@@ -6,6 +6,7 @@ import LorenzReducer from './lorenz/Reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import caesarCipherReducer from './caesarcipher/Reducers';
 import vigenereCipherReducer from './vigenere/Reducers';
+import vernamCipherReducer from './vernam/Reducers';
 
 const rootReducer = combineReducers({
 	enigma: EnigmaReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
 	lorenz: LorenzReducer,
 	caesarCipher: caesarCipherReducer,
 	vigenereCipher: vigenereCipherReducer,
+	vernamCipher: vernamCipherReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

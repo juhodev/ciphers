@@ -41,4 +41,10 @@ export const MACHINE_BASIC_INFO: BasicInfo[] = [
 		country: 'dunno',
 		link: '/vigenerecipher',
 	},
+	{
+		name: 'Vernam cipher',
+		date: '19jotain',
+		country: "'murica",
+		link: '/vernamcipher',
+	},
 ];

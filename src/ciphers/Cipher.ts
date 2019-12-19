@@ -4,6 +4,7 @@ export enum CipherType {
 	Sigaba,
 	Caesar,
 	Vigenere,
+	Vernam,
 }
 
 export abstract class Cipher {

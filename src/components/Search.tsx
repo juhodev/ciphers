@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './Search.scss';
 import { MACHINE_BASIC_INFO, BasicInfo } from './Types';
+import { levenshteinDistance } from '../Utils';
 
 interface SearchProps {
 	history: any;
@@ -87,6 +88,10 @@ export default class Search extends React.Component<SearchProps, SearchState> {
 
 			case 'vigenerecipher':
 				this.props.history.push('/vigenerecipher');
+				break;
+
+			case 'vernamcipher':
+				this.props.history.push('/vernamcipher');
 				break;
 
 			default:

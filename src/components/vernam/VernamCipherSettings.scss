@@ -1,0 +1,25 @@
+@import '../../index.scss';
+
+#vernam-cipher {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	flex-direction: column;
+
+	.title {
+		color: $fontColor;
+		padding: 3px;
+		width: 30%;
+		font-size: 20px;
+		margin-left: 5%;
+		background-color: $background;
+	}
+
+	textarea {
+		color: $fontColor;
+		background-color: $lighterBackground;
+		padding: 5px;
+		border: 1px solid $borderColor;
+		font-size: 20px;
+	}
+}
