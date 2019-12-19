@@ -14,6 +14,7 @@ const Root = ({ store }) => (
 			<Route path="/enigma" component={CipherContainer} />
 			<Route path="/lorenz" component={CipherContainer} />
 			<Route path="/caesarcipher" component={CipherContainer} />
+			<Route path="/vigenerecipher" component={CipherContainer} />
 		</Router>
 	</Provider>
 );

@@ -3,6 +3,7 @@ export enum CipherType {
 	Lorenz,
 	Sigaba,
 	Caesar,
+	Vigenere,
 }
 
 export abstract class Cipher {

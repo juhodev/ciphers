@@ -31,6 +31,9 @@ import { setRightShift } from '../store/caesarcipher/Actions';
 import CaesarCipher from '../ciphers/caesar/CaesarCipher';
 import CaesarCipherSettings from './ceasarCipher/CaesarCipherSettings';
 import InfoContainer from './UI/InfoContainer';
+import { setKey } from '../store/vigenere/Actions';
+import VigenereCipher from '../ciphers/vigenere/VigenereCipher';
+import VigenereCipherSettings from './vigenere/VigenereCipherSettings';
 
 interface CipherContainerProps {
 	addPlug: typeof addPlug;
@@ -46,6 +49,7 @@ interface CipherContainerProps {
 	setCam: typeof setCam;
 	setWheelPositions: typeof setWheelPositions;
 	setRightShift: typeof setRightShift;
+	setKey: typeof setKey;
 }
 
 interface CipherContainerState {
@@ -101,6 +105,15 @@ class CipherContainer extends React.Component<
 				};
 				break;
 
+			case '/vigenerecipher':
+				this.cipher = new VigenereCipher();
+				this.state = {
+					plaintext: '',
+					cipher: CipherType.Vigenere,
+					mode: 'encrypt',
+				};
+				break;
+
 			default:
 				window.alert(
 					`${pathname.substr(1, pathname.length)} not found`,
@@ -126,6 +139,8 @@ class CipherContainer extends React.Component<
 		} else if (cipher === CipherType.Lorenz) {
 			return /[a-zA-Z^(3|4|5|8|9)$\s]/.test(s);
 		} else if (cipher === CipherType.Caesar) {
+			return /[a-zA-Z]/.test(s);
+		} else if (cipher === CipherType.Vigenere) {
 			return /[a-zA-Z]/.test(s);
 		}
 	}
@@ -172,6 +187,9 @@ class CipherContainer extends React.Component<
 						setRightShift={this.props.setRightShift}
 					/>
 				);
+
+			case CipherType.Vigenere:
+				return <VigenereCipherSettings setKey={this.props.setKey} />;
 		}
 	}
 
@@ -257,6 +275,7 @@ const mapStateToProps = (state: AppState) => ({
 	cipher: state.cipher,
 	lorenz: state.lorenz,
 	caesarCipher: state.caesarCipher,
+	vigenereCipher: state.vigenereCipher,
 });
 
 export default connect(mapStateToProps, {
@@ -270,4 +289,5 @@ export default connect(mapStateToProps, {
 	setCam,
 	setWheelPositions,
 	setRightShift,
+	setKey,
 })(CipherContainer);

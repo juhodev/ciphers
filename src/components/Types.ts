@@ -35,4 +35,10 @@ export const MACHINE_BASIC_INFO: BasicInfo[] = [
 		country: '????',
 		link: '/caesarcipher',
 	},
+	{
+		name: 'Vigenere cipher',
+		date: 'Ehh',
+		country: 'dunno',
+		link: '/vigenerecipher',
+	},
 ];
